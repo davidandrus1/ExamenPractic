@@ -4,6 +4,9 @@ import org.example.Model.Status;
 import org.example.Model.Tribut;
 import org.example.Repository.TributRepo;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -59,7 +62,20 @@ public class TributService {
             tributs.sort(Comparator.comparing(Tribut::getSkillLevel).reversed());
         }
     }
-//    public void updateTribut(String name,Tribut Tribut){
-//        this.tributRepo.update(name,Tribut);
-//    }
+
+    public void scrie(String filePath, List<Tribut> tributs)
+    {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath)))
+        {
+            for(Tribut item : this.tributRepo.getAll())
+            {
+                writer.println(item.getId() + " | " + item.getName()+ " | " + item.getDistrikt() + " | " + item.getStatus() + " | " + item.getSkillLevel());
+            }
+        }
+        catch (IOException e)
+        {
+            System.err.println("Eroare la scrierea fisierului: " + e.getMessage());
+        }
+    }
+
 }

@@ -31,9 +31,7 @@ public class Main {
 
         tributService.sortBySkillLevel("desc");
         tributRepo.print(tributRepo.getAll());
-
-
-
+        tributService.scrie("src/main/resources/tributes_sorted.txt",tributRepo.getAll());
 
     }
 }
