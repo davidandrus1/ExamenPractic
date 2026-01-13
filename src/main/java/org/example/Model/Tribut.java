@@ -6,7 +6,6 @@ public class Tribut {
     int id;
     String name;
     int distrikt;
-//    JsonProperty("status")
     Status status;
     int skillLevel;
 

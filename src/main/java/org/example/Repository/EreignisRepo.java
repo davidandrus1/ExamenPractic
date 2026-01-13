@@ -1,32 +1,31 @@
 package org.example.Repository;
 
-import org.example.Model.Tribut;
+import org.example.Model.Ereignis;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TributRepo<T extends Tribut>{
+public class EreignisRepo<T extends Ereignis>{
 
     private  String filePath;
-    private List<Tribut> items;
+    private List<Ereignis> items;
 
     ObjectMapper mapper = new ObjectMapper();
 
-    public TributRepo(String filePath) {
+    public EreignisRepo(String filePath) {
         this.filePath = filePath;
     }
 
     public void readAll() {
         ObjectMapper mapper = new ObjectMapper();
-        Tribut[] tributs = mapper.readValue(new File(this.filePath), Tribut[].class);
+        Ereignis[] tributs = mapper.readValue(new File(this.filePath), Ereignis[].class);
         this.items = new ArrayList<>(Arrays.asList(tributs));
     }
 
-    public void add(Tribut t){
+    public void add(Ereignis t){
         this.items.add(t);
     }
 
@@ -34,7 +33,7 @@ public class TributRepo<T extends Tribut>{
         this.items.remove(name);
     }
 
-//    public void update(String name, Tribut t) {
+//    public void update(String name, Ereignis t) {
 //
 //    }
 
