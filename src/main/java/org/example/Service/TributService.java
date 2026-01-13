@@ -1,8 +1,11 @@
 package org.example.Service;
 
+import org.example.Model.Status;
 import org.example.Model.Tribut;
 import org.example.Repository.TributRepo;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class TributService {
@@ -26,6 +29,36 @@ public class TributService {
         this.tributRepo.remove(name);
     }
 
+//    public List<Tribut> filterByDistriktandStatus(int distrikt, Status status)
+//    {
+//        this.tributRepo.readAll();
+//
+//        List<Tribut> resultedList = new ArrayList<>();
+//
+//        for (Tribut item : tributRepo)
+//        {
+//            if()
+//            {
+//                resultedList.add(item);
+//            }
+//        }
+//
+//        return resultedList;
+//    }
+
+    public void sortBySkillLevel(String order){
+
+        List<Tribut> tributs = this.tributRepo.getAll();
+
+        if(order.equals("asc"))
+        {
+            tributs.sort(Comparator.comparing(Tribut::getSkillLevel));
+        }
+        else
+        {
+            tributs.sort(Comparator.comparing(Tribut::getSkillLevel).reversed());
+        }
+    }
 //    public void updateTribut(String name,Tribut Tribut){
 //        this.tributRepo.update(name,Tribut);
 //    }

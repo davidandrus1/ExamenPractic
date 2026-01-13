@@ -29,7 +29,9 @@ public class Main {
         sponsorGeschenkRepo.readAll();
         tributService.listAllTribut();
 
-        
+        tributService.sortBySkillLevel("desc");
+        tributRepo.print(tributRepo.getAll());
+
 
 
 

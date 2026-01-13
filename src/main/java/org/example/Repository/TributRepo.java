@@ -1,5 +1,6 @@
 package org.example.Repository;
 
+import org.example.Model.Status;
 import org.example.Model.Tribut;
 import tools.jackson.databind.ObjectMapper;
 
@@ -24,7 +25,6 @@ public class TributRepo<T extends Tribut>{
         ObjectMapper mapper = new ObjectMapper();
         Tribut[] tributs = mapper.readValue(new File(this.filePath), Tribut[].class);
         this.items = new ArrayList<>(Arrays.asList(tributs));
-        System.out.println("Tributes loaded: " + items.size());
     }
 
     public void add(Tribut t){
@@ -47,6 +47,9 @@ public class TributRepo<T extends Tribut>{
     }
 
     public void print(List<Tribut> items){
+
+        System.out.println("Tributes loaded: " + items.size());
+
         for(Tribut item : items)
         {
             System.out.println(item);
@@ -58,4 +61,7 @@ public class TributRepo<T extends Tribut>{
     {
         return items;
     }
+
+
+
 }
