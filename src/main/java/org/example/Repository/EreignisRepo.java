@@ -1,6 +1,7 @@
 package org.example.Repository;
 
 import org.example.Model.Ereignis;
+import org.example.Model.Tribut;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -34,6 +35,12 @@ public class EreignisRepo<T extends Ereignis>{
     public void remove(String name) {
         this.items.remove(name);
     }
+
+    public List<Ereignis> getAll()
+    {
+        return items;
+    }
+
 
 //    public void update(String name, Ereignis t) {
 //
