@@ -23,6 +23,7 @@ public class SponsorGeschenkRepo<T extends SponsorGeschenk>{
         ObjectMapper mapper = new ObjectMapper();
         SponsorGeschenk[] tributs = mapper.readValue(new File(this.filePath), SponsorGeschenk[].class);
         this.items = new ArrayList<>(Arrays.asList(tributs));
+        System.out.println("Gifts loaded: " + items.size());
     }
 
     public void add(SponsorGeschenk t){

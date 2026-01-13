@@ -14,6 +14,7 @@ public class TributService {
 
     public void listAllTribut(){
         this.tributRepo.readAll();
+        this.tributRepo.print(this.tributRepo.getAll());
     }
 
 

@@ -23,6 +23,8 @@ public class EreignisRepo<T extends Ereignis>{
         ObjectMapper mapper = new ObjectMapper();
         Ereignis[] tributs = mapper.readValue(new File(this.filePath), Ereignis[].class);
         this.items = new ArrayList<>(Arrays.asList(tributs));
+        System.out.println("Events loaded: " + items.size());
+
     }
 
     public void add(Ereignis t){

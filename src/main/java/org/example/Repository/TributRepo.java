@@ -24,6 +24,7 @@ public class TributRepo<T extends Tribut>{
         ObjectMapper mapper = new ObjectMapper();
         Tribut[] tributs = mapper.readValue(new File(this.filePath), Tribut[].class);
         this.items = new ArrayList<>(Arrays.asList(tributs));
+        System.out.println("Tributes loaded: " + items.size());
     }
 
     public void add(Tribut t){
@@ -43,6 +44,18 @@ public class TributRepo<T extends Tribut>{
 
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(this.filePath), this.items);
         System.out.println("Lista a fost salvata cu succes!");
+    }
 
+    public void print(List<Tribut> items){
+        for(Tribut item : items)
+        {
+            System.out.println(item);
+        }
+        System.out.println();
+    }
+
+    public List<Tribut> getAll()
+    {
+        return items;
     }
 }
